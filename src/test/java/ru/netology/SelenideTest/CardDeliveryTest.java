@@ -3,6 +3,7 @@ package ru.netology.SelenideTest;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -27,8 +28,9 @@ public class CardDeliveryTest {
 
     @Test
     void shouldTest() {
-        String date = date(3);
+        String date = date(5);
         $("[data-test-id='city'] input").setValue("Санкт-Петербург");
+        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").setValue(date);
         $("[data-test-id='name'] input").setValue("Леонов Алекс Васин");
         $("[data-test-id='phone'] input").setValue("+79112223333");
